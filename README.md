@@ -1,16 +1,7 @@
-# pokedex
+# Pokedex
 
-A new Flutter application.
+It is an example of API usage that shows the features and versions of pokemon characters.
 
-## Getting Started
+<img src="https://user-images.githubusercontent.com/50717631/153755060-5b87fcf4-9ad7-41e8-a390-77c3086fe19d.gif" width="300" height="600">
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://user-images.githubusercontent.com/50717631/153754996-1123de66-d11f-4e1d-81a9-9340167032cf.png" width="300" height="600"><img src="https://user-images.githubusercontent.com/50717631/153755000-eeb793ad-1ca0-40d5-abab-183c8177cc2c.png" width="300" height="600"><img src="https://user-images.githubusercontent.com/50717631/153755001-1bf896b1-b504-4ad6-bbe9-d3c0ab87d549.png" width="300" height="600">
