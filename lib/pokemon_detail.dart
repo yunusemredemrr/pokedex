@@ -23,8 +23,7 @@ class _PokemonDetailState extends State<PokemonDetail> {
 
   void BaskinRengiBul() {
     Future<PaletteGenerator> futurePaletteGenerator =
-    PaletteGenerator.fromImageProvider(
-        NetworkImage(widget.pokemon.img));
+        PaletteGenerator.fromImageProvider(NetworkImage(widget.pokemon.img));
 
     futurePaletteGenerator.then((value) {
       paletteGenerator = value;
@@ -35,6 +34,7 @@ class _PokemonDetailState extends State<PokemonDetail> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,19 +60,10 @@ class _PokemonDetailState extends State<PokemonDetail> {
     return Stack(
       children: <Widget>[
         Positioned(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height * (3.5 / 5),
-          width: MediaQuery
-              .of(context)
-              .size
-              .width - 20,
+          height: MediaQuery.of(context).size.height * (3.5 / 5),
+          width: MediaQuery.of(context).size.width - 20,
           left: 10,
-          top: MediaQuery
-              .of(context)
-              .size
-              .height * 0.1,
+          top: MediaQuery.of(context).size.height * 0.1,
           child: Card(
             elevation: 6,
             shape: RoundedRectangleBorder(
@@ -83,19 +74,17 @@ class _PokemonDetailState extends State<PokemonDetail> {
               children: <Widget>[
                 SizedBox(height: 70),
                 Text(widget.pokemon.name,
-                    style:
-                    TextStyle( fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 Text("Height:" + widget.pokemon.height),
                 Text("Weight:" + widget.pokemon.weight),
                 Text(
                   "Types",
-                  style: TextStyle( fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: widget.pokemon.type
-                      .map((tip) =>
-                      Chip(
+                      .map((tip) => Chip(
                           label: Text(
                             tip,
                             style: TextStyle(color: Colors.white),
@@ -105,57 +94,64 @@ class _PokemonDetailState extends State<PokemonDetail> {
                 ),
                 Text(
                   "Pre Evolution",
-                  style: TextStyle( fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: widget.pokemon.prevEvolution != null ?
-                  widget.pokemon.prevEvolution.map((prevEvolution) =>
-                      Chip(
-                          label: Text(
-                            prevEvolution.name,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.deepOrange.shade300))
-                      .toList() : [
-                    Chip(label: Text("İlk hali"),
-                      backgroundColor: Colors.red.shade700,)
-                  ],
+                  children: widget.pokemon.prevEvolution != null
+                      ? widget.pokemon.prevEvolution
+                          .map((prevEvolution) => Chip(
+                              label: Text(
+                                prevEvolution.name,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor: Colors.deepOrange.shade300))
+                          .toList()
+                      : [
+                          Chip(
+                            label: Text("First Version"),
+                            backgroundColor: Colors.red.shade700,
+                          )
+                        ],
                 ),
                 Text(
                   "Next Evolution",
-                  style: TextStyle( fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: widget.pokemon.nextEvolution != null ?
-                  widget.pokemon.nextEvolution.map((evolution) =>
-                      Chip(
-                          label: Text(
-                            evolution.name,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.deepOrange.shade300))
-                      .toList() : [
-                    Chip(label: Text("Son hali"),
-                      backgroundColor: Colors.red.shade700,)
-                  ],
+                  children: widget.pokemon.nextEvolution != null
+                      ? widget.pokemon.nextEvolution
+                          .map((evolution) => Chip(
+                              label: Text(
+                                evolution.name,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor: Colors.deepOrange.shade300))
+                          .toList()
+                      : [
+                          Chip(
+                            label: Text("Last Version"),
+                            backgroundColor: Colors.red.shade700,
+                          )
+                        ],
                 ),
                 Text(
                   "Weakness",
-                  style: TextStyle( fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: widget.pokemon.weaknesses != null ?
-                  widget.pokemon.weaknesses.map((weakness) =>
-                      Chip(
-                          label: Text(
-                            weakness,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.deepOrange.shade300))
-                      .toList() : [Chip(label: Text("Zayıflığı yok"))],
+                  children: widget.pokemon.weaknesses != null
+                      ? widget.pokemon.weaknesses
+                          .map((weakness) => Chip(
+                              label: Text(
+                                weakness,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor: Colors.deepOrange.shade300))
+                          .toList()
+                      : [Chip(label: Text("Zayıflığı yok"))],
                 ),
               ],
             ),
@@ -204,7 +200,6 @@ class _PokemonDetailState extends State<PokemonDetail> {
                 ),
               ),
             ),
-
           ),
           Expanded(
             flex: 4,
@@ -215,18 +210,17 @@ class _PokemonDetailState extends State<PokemonDetail> {
                   SizedBox(height: 70),
                   Text(widget.pokemon.name,
                       style:
-                      TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                   Text("Height:" + widget.pokemon.height),
                   Text("Weight:" + widget.pokemon.weight),
                   Text(
                     "Types",
-                    style: TextStyle( fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: widget.pokemon.type
-                        .map((tip) =>
-                        Chip(
+                        .map((tip) => Chip(
                             label: Text(
                               tip,
                               style: TextStyle(color: Colors.white),
@@ -236,57 +230,64 @@ class _PokemonDetailState extends State<PokemonDetail> {
                   ),
                   Text(
                     "Pre Evolution",
-                    style: TextStyle( fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: widget.pokemon.prevEvolution != null ?
-                    widget.pokemon.prevEvolution.map((prevEvolution) =>
-                        Chip(
-                            label: Text(
-                              prevEvolution.name,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            backgroundColor: Colors.deepOrange.shade300))
-                        .toList() : [
-                      Chip(label: Text("İlk hali"),
-                        backgroundColor: Colors.red.shade700,)
-                    ],
+                    children: widget.pokemon.prevEvolution != null
+                        ? widget.pokemon.prevEvolution
+                            .map((prevEvolution) => Chip(
+                                label: Text(
+                                  prevEvolution.name,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                backgroundColor: Colors.deepOrange.shade300))
+                            .toList()
+                        : [
+                            Chip(
+                              label: Text("First version"),
+                              backgroundColor: Colors.red.shade700,
+                            )
+                          ],
                   ),
                   Text(
                     "Next Evolution",
-                    style: TextStyle( fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: widget.pokemon.nextEvolution != null ?
-                    widget.pokemon.nextEvolution.map((evolution) =>
-                        Chip(
-                            label: Text(
-                              evolution.name,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            backgroundColor: Colors.deepOrange.shade300))
-                        .toList() : [
-                      Chip(label: Text("Son hali"),
-                        backgroundColor: Colors.red.shade700,)
-                    ],
+                    children: widget.pokemon.nextEvolution != null
+                        ? widget.pokemon.nextEvolution
+                            .map((evolution) => Chip(
+                                label: Text(
+                                  evolution.name,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                backgroundColor: Colors.deepOrange.shade300))
+                            .toList()
+                        : [
+                            Chip(
+                              label: Text("Last Version"),
+                              backgroundColor: Colors.red.shade700,
+                            )
+                          ],
                   ),
                   Text(
                     "Weakness",
-                    style: TextStyle( fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: widget.pokemon.weaknesses != null ?
-                    widget.pokemon.weaknesses.map((weakness) =>
-                        Chip(
-                            label: Text(
-                              weakness,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            backgroundColor: Colors.deepOrange.shade300))
-                        .toList() : [Chip(label: Text("Zayıflığı yok"))],
+                    children: widget.pokemon.weaknesses != null
+                        ? widget.pokemon.weaknesses
+                            .map((weakness) => Chip(
+                                label: Text(
+                                  weakness,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                backgroundColor: Colors.deepOrange.shade300))
+                            .toList()
+                        : [Chip(label: Text("Zayıflığı yok"))],
                   ),
                 ],
               ),
